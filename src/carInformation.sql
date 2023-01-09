@@ -406,3 +406,45 @@ insert into cars (id, brand, model, year_of_issue, price, color) values (397, 'S
 insert into cars (id, brand, model, year_of_issue, price, color) values (398, 'Maserati', '228', 1990, 63824.76, 'Violet');
 insert into cars (id, brand, model, year_of_issue, price, color) values (399, 'Alfa Romeo', 'Spider', 1992, 53247.18, 'Fuscia');
 insert into cars (id, brand, model, year_of_issue, price, color) values (400, 'Aston Martin', 'DBS', 2009, 87573.8, 'Orange');
+
+select * from cars;
+
+-- #1 Отображать только марки автомобилей и модели автомобилей и цену автомобиля
+select brand,model,price from cars;
+-- #2 Показать количество всех автомобилей
+select count(*) from cars;
+-- #3 Показать все автомобили марки Hyundai
+select * from cars where brand = 'Hyundai';
+-- #4 Показать все красные и синие автомобили
+select * from cars where color = 'Red' or color = 'Blue';
+-- #5 Показать все автомобили, выпущенные с 2000 по 2010 год
+select * from cars where year_of_issue between '2000' and '2010';
+-- #6 Показать количество автомобилей марки Chevrolet
+select count(*) from cars where brand = 'Chevrolet';
+-- #7 Отображение среднего года выпуска автомобилей
+select avg(year_of_issue) from cars;
+-- # 8 Вывести все автомобили брендов Audi, Toyota, Kia и Ford
+select * from cars where brand = 'Audi' or brand = 'Toyota' or brand = 'Kia' or brand = 'Ford';
+-- # 9 Показать автомобили, где модель автомобиля начинается с «Т»
+select * from cars where model like 'A%';
+-- #10 Показать автомобили, где модель автомобиля заканчивается на «е»;
+select * from cars where model  like '%e';
+-- #11 Показать бренды, содержащие только 5 символов
+select brand from cars where brand like '_____';
+-- #12 Показать общую сумму всех автомобилей марки Mercedes-Benz
+select sum(price) from cars where brand = 'Mercedes-Benz';
+-- #13 Показать самую дорогую и самую дешевую машину
+select max(price),min(price) from cars;
+-- #14 Показать все автомобили, где марка автомобиля не TOYOTA
+select * from cars where brand = 'Toyota';
+-- #15 Показать 10 самых дорогих автомобилей
+select * from cars
+where price > 90000
+order by price desc
+limit 10;
+-- #16 Отображение новейших автомобилей с 5-го по 15-е.
+select * from cars where year_of_issue between '2005' and '2015';
+-- #17 Вывести все автомобили, кроме тех автомобилей которые выпустились между 1995 и 2005;
+select * from cars where year_of_issue not between '1995' and '2005';
+-- # 18 Вывести автомобилей одного цвета и наибольшего количества
+select count(*) from cars where color = 'Pink';
