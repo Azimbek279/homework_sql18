@@ -436,7 +436,7 @@ select sum(price) from cars where brand = 'Mercedes-Benz';
 -- #13 Показать самую дорогую и самую дешевую машину
 select max(price),min(price) from cars;
 -- #14 Показать все автомобили, где марка автомобиля не TOYOTA
-select * from cars where brand = 'Toyota';
+select * from cars where not brand = 'Toyota';
 -- #15 Показать 10 самых дорогих автомобилей
 select * from cars
 where price > 90000
