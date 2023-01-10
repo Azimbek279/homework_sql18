@@ -443,8 +443,12 @@ where price > 90000
 order by price desc
 limit 10;
 -- #16 Отображение новейших автомобилей с 5-го по 15-е.
-select * from cars where year_of_issue between '2005' and '2015';
+select * from cars
+order by year_of_issue desc
+limit 10
+offset 5;
 -- #17 Вывести все автомобили, кроме тех автомобилей которые выпустились между 1995 и 2005;
 select * from cars where year_of_issue not between '1995' and '2005';
 -- # 18 Вывести автомобилей одного цвета и наибольшего количества
 select count(*) from cars where color = 'Pink';
+
